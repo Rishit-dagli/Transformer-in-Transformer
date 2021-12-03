@@ -18,6 +18,8 @@ level attention for image classification, in TensorFlow.
 
 ![](media/tnt.PNG)
 
+[PyTorch Implementation](https://github.com/lucidrains/transformer-in-transformer)
+
 ## Installation
 
 Run the following to install:
