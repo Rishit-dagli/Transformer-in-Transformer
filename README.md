@@ -16,3 +16,62 @@ paper by Han et al. for image classification, attention inside local patches.
 level attention for image classification, in TensorFlow.
 
 ![](media/tnt.PNG)
+
+## Installation
+
+Run the following to install:
+
+```sh
+pip install tnt-tensorflow
+```
+
+## Developing tnt-tensorflow
+
+To install `tnt-tensorflow`, along with tools you need to develop and test, run the following in your virtualenv:
+
+```sh
+git clone https://github.com/Rishit-dagli/Transformer-in-Transformer.git
+# or clone your own fork
+
+cd tnt
+pip install -e .[dev]
+```
+
+## Want to Contribute 🙋‍♂️?
+
+Awesome! If you want to contribute to this project, you're always welcome! See [Contributing Guidelines](CONTRIBUTING.md). You can also take a look at [open issues](https://github.com/Rishit-dagli/Transformer-in-Transformer/issues) for getting more information about current or upcoming tasks.
+
+## Want to discuss? 💬
+
+Have any questions, doubts or want to present your opinions, views? You're always welcome. You can [start discussions](https://github.com/Rishit-dagli/Transformer-in-Transformer/discussions).
+
+## Citation
+
+```bibtex
+@misc{han2021transformer,
+      title={Transformer in Transformer}, 
+      author={Kai Han and An Xiao and Enhua Wu and Jianyuan Guo and Chunjing Xu and Yunhe Wang},
+      year={2021},
+      eprint={2103.00112},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+## License
+
+```
+Copyright 2020 Rishit Dagli
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
