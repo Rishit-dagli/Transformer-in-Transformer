@@ -30,7 +30,7 @@ class Attention(tf.keras.layers.Layer):
 
     def call(self, x, **kwargs):
         if len(x.shape) == 4:
-            x = x[:,0,:,:]
+            x = x[:, 0, :, :]
         b, n, d = x.shape
 
         qkv = self.to_qkv(x)

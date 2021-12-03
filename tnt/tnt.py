@@ -3,6 +3,7 @@ from einops import rearrange, repeat
 from einops.layers.tensorflow import Rearrange
 from .attention import Attention
 
+
 def get_elements_from_nested_list(l, new_l):
     if l is not None:
         e = l[0]
@@ -14,6 +15,7 @@ def get_elements_from_nested_list(l, new_l):
             return get_elements_from_nested_list(l[1:], new_l)
         else:
             return new_l
+
 
 class PreNorm(tf.keras.layers.Layer):
     def __init__(self, dim, fn):
@@ -122,12 +124,14 @@ class TNT(tf.keras.layers.Layer):
                             heads=heads,
                             dim_head=dim_head,
                             dropout=attn_dropout,
-                        )
+                        ),
                     )
                 ]
             )
 
-            layers.append(PreNorm(pixel_dim, FeedForward(dim=pixel_dim, dropout=ff_dropout)))
+            layers.append(
+                PreNorm(pixel_dim, FeedForward(dim=pixel_dim, dropout=ff_dropout))
+            )
 
             layers.append(pixel_to_patch)
 
@@ -145,7 +149,9 @@ class TNT(tf.keras.layers.Layer):
                 ]
             )
 
-            layers.append(PreNorm(patch_dim, FeedForward(dim=patch_dim, dropout=ff_dropout)))
+            layers.append(
+                PreNorm(patch_dim, FeedForward(dim=patch_dim, dropout=ff_dropout))
+            )
         self.layers = layers
 
         self.mlp_head = tf.keras.Sequential(
@@ -167,20 +173,26 @@ class TNT(tf.keras.layers.Layer):
             raise ValueError(
                 f"Image width must be divisible by patch size: {width} / {patch_size}"
             )
-        
+
         num_patches_h = height // patch_size
         num_patches_w = width // patch_size
         n = num_patches_w * num_patches_h
 
         pixels = self.to_pixel_tokens(x)
-        patches = repeat(self.patch_tokens[:(n + 1)], 'n d -> b n d', b = batches)
+        patches = repeat(self.patch_tokens[: (n + 1)], "n d -> b n d", b=batches)
 
-        patches += rearrange(self.patch_pos_emb[:(n + 1)], 'n d -> () n d')
-        rearrange(self.pixel_pos_emb, 'n d -> () n d')
-        pixels += rearrange(self.pixel_pos_emb, 'n d -> () n d')
+        patches += rearrange(self.patch_pos_emb[: (n + 1)], "n d -> () n d")
+        rearrange(self.pixel_pos_emb, "n d -> () n d")
+        pixels += rearrange(self.pixel_pos_emb, "n d -> () n d")
 
         layer_group = 0
-        pixel_attn, pixel_ff, pixel_to_patch_residual, patch_attn, patch_ff = [], [], [], [], []
+        pixel_attn, pixel_ff, pixel_to_patch_residual, patch_attn, patch_ff = (
+            [],
+            [],
+            [],
+            [],
+            [],
+        )
         for layer in self.layers:
             if layer_group % 5 == 0:
                 pixel_attn.append(layer)
@@ -193,17 +205,25 @@ class TNT(tf.keras.layers.Layer):
             if layer_group % 5 == 4:
                 patch_ff.append(layer)
             layer_group += 1
-        
+
         if len(pixels.shape) > 3:
-            pixels = pixels[:,0,:,:]
+            pixels = pixels[:, 0, :, :]
 
         for i, j in zip(pixel_attn, pixel_ff):
-            pixels = tf.keras.Sequential(i)(pixels) + tf.keras.Sequential(j)(pixels) + pixels
+            pixels = (
+                tf.keras.Sequential(i)(pixels) + tf.keras.Sequential(j)(pixels) + pixels
+            )
 
-        pixel_to_patch_residual_layers = get_elements_from_nested_list(pixel_to_patch_residual, [])
+        pixel_to_patch_residual_layers = get_elements_from_nested_list(
+            pixel_to_patch_residual, []
+        )
 
         for i, j in zip(patch_attn, patch_ff):
-            patches = tf.keras.Sequential(i)(patches) + tf.keras.Sequential(j)(patches) + patches
+            patches = (
+                tf.keras.Sequential(i)(patches)
+                + tf.keras.Sequential(j)(patches)
+                + patches
+            )
 
         cls_token = patches[:, 0]
         return self.mlp_head(cls_token)
