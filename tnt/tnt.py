@@ -1,7 +1,7 @@
 import tensorflow as tf
 from einops import rearrange, repeat
 from einops.layers.tensorflow import Rearrange
-from attention import Attention
+from .attention import Attention
 
 def get_elements_from_nested_list(l, new_l):
     if l is not None:
