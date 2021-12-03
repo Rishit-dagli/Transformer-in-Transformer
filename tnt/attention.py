@@ -23,7 +23,7 @@ class Attention(tf.keras.layers.Layer):
 
         self.to_out = tf.keras.Sequential(
             [
-                tf.keras.layers.Dense(dim, input_dim=inner_dim),
+                tf.keras.layers.Dense(dim),
                 tf.keras.layers.Dropout(dropout),
             ]
         )
