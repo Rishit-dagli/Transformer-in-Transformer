@@ -13,7 +13,7 @@
 
 An Implementation of the [Transformer in Transformer](https://arxiv.org/abs/2103.00112)
 paper by Han et al. for image classification, attention inside local patches.
-**Transformer in Transformers** uses pixel level attention paired with patch
+**Transformer in Transformer** uses pixel level attention paired with patch
 level attention for image classification, in TensorFlow.
 
 ![](media/tnt.PNG)
