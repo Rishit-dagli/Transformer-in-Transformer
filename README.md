@@ -62,6 +62,14 @@ img = tf.random.uniform(shape=[5, 3, 256, 256])
 logits = tnt(img) # (5, 1000)
 ```
 
+## Pre-trained model
+
+The pre-trained model for TNT-S variant (reproducing the paper results, 81.4% top-1 accuracy and 95.7% top-5 accuracy on ImageNet-1K) can also be found paired with an example of inferencing with it.
+
+| Model | TensorFlow Hub | Inference Tutorial |
+| :---: | :------------: | :----------------: |
+| [bucket](https://storage.googleapis.com/hub-models.appspot.com/tnt/tnt_s_patch16_224.tar.gz) | [tfhub.dev](https://tfhub.dev/rishit-dagli/tnt-s/) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rishit-dagli/Transformer-in-Transformer/blob/main/example/pre_trained_model.ipynb) |
+
 ## Want to Contribute 🙋‍♂️?
 
 Awesome! If you want to contribute to this project, you're always welcome! See [Contributing Guidelines](CONTRIBUTING.md). You can also take a look at [open issues](https://github.com/Rishit-dagli/Transformer-in-Transformer/issues) for getting more information about current or upcoming tasks.
