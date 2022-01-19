@@ -62,6 +62,8 @@ img = tf.random.uniform(shape=[5, 3, 256, 256])
 logits = tnt(img) # (5, 1000)
 ```
 
+An end to end training example for image classification on a dataset can be found in the [training.ipynb](training.ipynb) notebook.
+
 ## Pre-trained model
 
 The pre-trained model for TNT-S variant (reproducing the paper results, 81.4% top-1 accuracy and 95.7% top-5 accuracy on ImageNet-1K) can also be found paired with an example of inferencing with it.
