@@ -1,7 +1,7 @@
 # Transformer-in-Transformer [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTransformer-in-Transformer)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTransformer-in-Transformer)
 
 ![PyPI](https://img.shields.io/pypi/v/tnt-tensorflow)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rishit-dagli/Transformer-in-Transformer/blob/main/example/tnt-example.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rishit-dagli/Transformer-in-Transformer/blob/main/training.ipynb)
 [![Upload Python Package](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/python-publish.yml)
 [![Lint Code Base](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/linter.yml/badge.svg)](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/linter.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -61,6 +61,8 @@ tnt = TNT(
 img = tf.random.uniform(shape=[5, 3, 256, 256])
 logits = tnt(img) # (5, 1000)
 ```
+
+An end to end training example for image classification on a dataset can be found in the [training.ipynb](training.ipynb) notebook.
 
 ## Pre-trained model
 
