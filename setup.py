@@ -61,6 +61,9 @@ setup(
             "twine",
             "numpy",
             "black",
+            "pytest",
+            "pytest-cov",
+            "parameterized",
         ],
     },
 )
