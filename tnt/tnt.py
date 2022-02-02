@@ -1,6 +1,7 @@
 import tensorflow as tf
 from einops import rearrange, repeat
 from einops.layers.tensorflow import Rearrange
+
 from .attention import Attention
 
 
