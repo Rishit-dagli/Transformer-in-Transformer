@@ -2,10 +2,11 @@
 
 ![PyPI](https://img.shields.io/pypi/v/tnt-tensorflow)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rishit-dagli/Transformer-in-Transformer/blob/main/training.ipynb)
+[![Run Tests](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/tests.yml/badge.svg)](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/tests.yml)
 [![Upload Python Package](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/python-publish.yml)
-[![Lint Code Base](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/linter.yml/badge.svg)](https://github.com/Rishit-dagli/Transformer-in-Transformer/actions/workflows/linter.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+[![codecov](https://codecov.io/gh/Rishit-dagli/Transformer-in-Transformer/branch/main/graph/badge.svg?token=WZ8D4UXGBL)](https://codecov.io/gh/Rishit-dagli/Transformer-in-Transformer)
 ![GitHub License](https://img.shields.io/github/license/Rishit-dagli/Transformer-in-Transformer)
 [![GitHub stars](https://img.shields.io/github/stars/Rishit-dagli/Transformer-in-Transformer?style=social)](https://github.com/Rishit-dagli/Transformer-in-Transformer/stargazers)
 [![GitHub followers](https://img.shields.io/github/followers/Rishit-dagli?label=Follow&style=social)](https://github.com/Rishit-dagli)
