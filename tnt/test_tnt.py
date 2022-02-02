@@ -24,13 +24,13 @@ class TNTTest(tf.test.TestCase):
         # not feasible to run more tests due to compute time
         for _ in range(1):
             image_size.append(
-                random.randint(1, 64) * 16
+                random.randint(1, 32) * 16
             )  # Should be divisible by patch_size
             depth.append(random.randint(1, 10))
-            num_classes.append(random.randint(1, 150))
+            num_classes.append(random.randint(1, 1500))
             attn_dropout.append(random.uniform(0, 1))
             ff_dropout.append(random.uniform(0, 1))
-            batch_size.append(random.randint(1, 10))
+            batch_size.append(random.randint(1, 5))
         param_list = [
             [a, b, c, d, e, f]
             for a in image_size
