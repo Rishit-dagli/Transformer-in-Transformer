@@ -40,6 +40,12 @@ cd tnt
 pip install -e .[dev]
 ```
 
+To run rank and shape tests run the following:
+
+```
+pytest -v --disable-warnings --cov
+```
+
 ## Usage
 
 ```py
