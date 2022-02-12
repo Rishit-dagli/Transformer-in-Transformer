@@ -23,10 +23,20 @@ level attention for image classification, in TensorFlow.
 
 ## Installation
 
+### PyPI
+
 Run the following to install:
 
 ```sh
 pip install tnt-tensorflow
+```
+
+### Docker
+
+To install the package using Docker run the following:
+
+```sh
+docker pull ghcr.io/rishit-dagli/tnt:0.2.0
 ```
 
 ## Developing tnt-tensorflow
@@ -37,7 +47,7 @@ To install `tnt-tensorflow`, along with tools you need to develop and test, run 
 git clone https://github.com/Rishit-dagli/Transformer-in-Transformer.git
 # or clone your own fork
 
-cd tnt
+cd Transformer-in-Transformer
 pip install -e .[dev]
 ```
 
@@ -70,6 +80,20 @@ logits = tnt(img) # (5, 1000)
 ```
 
 An end to end training example for image classification on a dataset can be found in the [training.ipynb](training.ipynb) notebook.
+
+## Run with Docker
+
+You can also run the example script with Docker.
+
+```sh
+git clone https://github.com/Rishit-dagli/Transformer-in-Transformer.git
+cd Transformer-in-Transformer
+
+docker run -it --rm \
+    --mount type=bind,source="$(pwd)"/example,target=/usr/src/tnt/docker_example \
+    ghcr.io/rishit-dagli/tnt:0.2.0 \
+    python docker_example/docker_example.py
+```
 
 ## Pre-trained model
 
